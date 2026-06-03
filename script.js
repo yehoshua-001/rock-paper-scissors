@@ -1,4 +1,9 @@
 // Computer choice logic which randomly selects a number from 3 choices
+function letsPlay() {
+    alert("Let's play Rock Paper Scissor!")
+}
+letsPlay();
+
 function getComputerChoice() {
     computerChoice = Math.floor(Math.random() * 3);
     if (computerChoice === 0) {
@@ -12,7 +17,7 @@ function getComputerChoice() {
 
 // Human choice logic which allows the user to input their choice
 function getHumanChoice() {
-    const humanChoice = prompt("Choose: rock, paper, or scissors?");
+    const humanChoice = prompt("Now choose! rock, paper, or scissors?");
     return humanChoice;
 }
 
