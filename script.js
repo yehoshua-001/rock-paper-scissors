@@ -1,10 +1,4 @@
-function letsPlay() {
-    alert("Let's play Rock Paper Scissor!")
-}
-letsPlay();
-
 // DOM elements
-const buttons = document.querySelectorAll('button');
 const choices = ['rock', 'paper', 'scissors'];
 const displayRound = document.querySelector('#round');
 const compare = document.querySelector('#compare');
@@ -96,6 +90,7 @@ function playRound(humanChoice){
     }
 }
 
+const buttons = document.querySelectorAll('button');
 buttons.forEach(button =>{
     button.addEventListener('click', function(){
         const humanChoice = button.getAttribute('id');
