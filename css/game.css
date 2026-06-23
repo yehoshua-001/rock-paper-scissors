@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #160C28;
+    color: #E1EFE6;
+    display: flex;    
+    justify-content: center;
+    align-items: center;    
+    flex-direction: column;
+}
+
+main {
+    font-family: Verdana, Garamond, "Gill Sans", sans-serif;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 700px;
+}
+
+h1 {
+    font-size: 5rem;
+    color: #EFCB68;
+    display: flex;
+    margin: 0;
+}
+
+.round,
+.compare,
+.result,
+.score {
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 325px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-block: 30px;
+}
+
+.compare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.human,
+.computer {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    border: 1px solid white;
+    height: 300px;
+    width: 300px;
+}
+
+.txtLabel p {
+    display: flex;
+    margin: 0;
+}
+
+.human {
+    margin-right: 80px;
+}
+
+.result {
+    border: 1px solid white;
+    height: 300px;
+    width: 300px;
+}
+
+.computer {
+    margin-left: 80px;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+#rock,
+#paper,
+#scissors {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    padding: 5px 30px 5px 30px;
+    border: 1px solid #000411;
+    border-radius: 10px;
+    background-color: #000411;
+    color: #E1EFE6;
+}
+
+#rock:hover,
+#paper:hover,
+#scissors:hover {
+    background-color: #E1EFE6;
+    border: 1px solid #E1EFE6;
+    color: #000411;
+    text-decoration: none;
+    transition: all 0.3 ease;
+}
