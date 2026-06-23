@@ -10,18 +10,40 @@
 
     <body>
         <main>
-            <h1>Rock Paper Scissors</h1>
+            <div class="h1">
+                <h1>Rock Paper Scissors</h1>
+            </div>
+            <div class="board">
+                <div class="playerScore">
+                    <p id="playerScore">0</p>
+                </div>
+                <div class="round">
+                    <p id="round">Round 1</p>
+                </div>      
+                <div class="botScore">
+                    <p id="botScore">0</p>
+                </div>                          
+            </div>
+            <div class="compare">
+                <div class="human">
+                    <div class="txtLabel">
+                        <p>You</p>
+                    </div>
+                </div>
+                <div class="result">
+                    <p id="result"></p>
+                </div>
+                <div class="computer">
+                    <div class="txtLabel">
+                        <p>Computer</p>
+                    </div>
+                </div>
+            </div>
             <div class="choices">
                 <button id="rock">Rock</button>
                 <button id="paper">Paper</button>
                 <button id="scissors">Scissors</button>
             </div>
-            <div class="display">
-                <p id="round">Round: 1</p>
-                <p id="compare"></p>
-                <p id="result"></p>
-                <p id="score">You 0 | 0 Computer</p>
-            </div>            
         </main>
     </body>
 </html>
