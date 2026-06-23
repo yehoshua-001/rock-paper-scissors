@@ -1,9 +1,10 @@
 // DOM elements
 const choices = ['rock', 'paper', 'scissors'];
 const displayRound = document.querySelector('#round');
-const compare = document.querySelector('#compare');
+// const compare = document.querySelector('#compare');
 const result = document.querySelector('#result');
-const score = document.querySelector('#score');
+const playerScore = document.querySelector('#playerScore');
+const botScore = document.querySelector('#botScore');
 
 // Global variables
 let computerScore = 0;
@@ -19,8 +20,8 @@ function getComputerChoice() {
 function playRound(humanChoice){
     humanChoice = humanChoice;
     computerChoice = getComputerChoice();
-    displayRound.textContent = `Round: ${round}`;
-    compare.textContent = `You chose ${humanChoice.toUpperCase()}. Computer chose ${computerChoice.toUpperCase()}.`;
+    displayRound.textContent = `Round ${round}`;
+    // compare.textContent = `You chose ${humanChoice.toUpperCase()}. Computer chose ${computerChoice.toUpperCase()}.`;
     // Comparing
     if(humanChoice === computerChoice){
         result.textContent = `It is draw!`;
@@ -55,12 +56,12 @@ function playRound(humanChoice){
     function win(){
         humanScore++;
         result.textContent = `You win! ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}`;
-        score.textContent = `You ${humanScore} | ${computerScore} Computer`;
+        playerScore.textContent = `${humanScore}`;
     }
     function lose(){
         computerScore++;
         result.textContent = `Computer wins! ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}`;
-        score.textContent = `You ${humanScore} | ${computerScore} Computer`;
+        botScore.textContent = `${computerScore}`;
     }
     round++;
 
