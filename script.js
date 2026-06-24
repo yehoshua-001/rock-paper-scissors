@@ -1,8 +1,8 @@
 // DOM elements
 const choices = ['rock', 'paper', 'scissors'];
 const displayRound = document.querySelector('#round');
-// const compare = document.querySelector('#compare');
 const result = document.querySelector('#result');
+const symbol = document.querySelector('#symbol');
 const playerScore = document.querySelector('#playerScore');
 const botScore = document.querySelector('#botScore');
 
@@ -14,18 +14,27 @@ let round = 1;
 
 function getComputerChoice() {
     const randomNum = Math.floor(Math.random() * choices.length);
-    return choices[randomNum];
+    return computerChoice = choices[randomNum];
 }
 
 function playRound(humanChoice){
-    humanChoice = humanChoice;
     computerChoice = getComputerChoice();
+    const computerChoiceImg = document.querySelector('#computerChoiceImg');
+    if(computerChoice === "rock"){
+        computerChoiceImg.setAttribute("src", "./images/computer/rock.png");
+    }
+    else if(computerChoice === "paper"){
+        computerChoiceImg.setAttribute("src", "./images/computer/paper.png");
+    }
+    else{
+        computerChoiceImg.setAttribute("src", "./images/computer/scissors.png");
+    }
+
     displayRound.textContent = `Round ${round}`;
-    // compare.textContent = `You chose ${humanChoice.toUpperCase()}. Computer chose ${computerChoice.toUpperCase()}.`;
-    // Comparing
+
     if(humanChoice === computerChoice){
-        result.textContent = `It is draw!`;
-        score.textContent = `You ${humanScore} | ${computerScore} Computer`;
+        symbol.textContent = `=`;
+        result.textContent = `Draw`;
     }
     else{
         if(humanChoice === "rock"){
@@ -55,12 +64,14 @@ function playRound(humanChoice){
     }
     function win(){
         humanScore++;
-        result.textContent = `You win! ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}`;
+        symbol.textContent = `>`
+        result.textContent = `${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}`;
         playerScore.textContent = `${humanScore}`;
     }
     function lose(){
         computerScore++;
-        result.textContent = `Computer wins! ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}`;
+        symbol.textContent = `<`
+        result.textContent = `${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}`;
         botScore.textContent = `${computerScore}`;
     }
     round++;
@@ -96,5 +107,18 @@ buttons.forEach(button =>{
     button.addEventListener('click', function(){
         const humanChoice = button.getAttribute('id');
         playRound(humanChoice);
+    });
+    button.addEventListener('click', function(){
+        const playerChoice = button.getAttribute('id');
+        const playerChoiceImg = document.querySelector('#playerChoiceImg');
+        if(playerChoice === "rock"){
+            playerChoiceImg.setAttribute("src", "./images/player/rock.png")
+        }
+        else if(playerChoice === "paper"){
+            playerChoiceImg.setAttribute("src", "./images/player/paper.png")
+        }
+        else{
+            playerChoiceImg.setAttribute("src", "./images/player/scissors.png")
+        }
     });
 })
