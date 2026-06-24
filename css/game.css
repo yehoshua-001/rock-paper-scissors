@@ -46,21 +46,22 @@ h1 {
     gap: 325px;
     font-size: 1.5rem;
     font-weight: 800;
-    margin-block: 30px;
+    margin-top: 30px;
 }
 
 .compare {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px white solid; */
 }
 
 .human,
 .computer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: end;
-    border: 1px solid white;
+    align-items: center;
     height: 300px;
     width: 300px;
 }
@@ -70,18 +71,28 @@ h1 {
     margin: 0;
 }
 
-.human {
-    margin-right: 80px;
-}
-
 .result {
-    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
     height: 300px;
-    width: 300px;
+    width: 500px;
 }
 
-.computer {
-    margin-left: 80px;
+#symbol {
+    margin: 0;
+    font-size: 6rem;
+}
+
+.playerChoiceImg,
+.computerChoiceImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .choices {
