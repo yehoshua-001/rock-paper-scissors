@@ -75,30 +75,45 @@ function playRound(humanChoice){
         botScore.textContent = `${computerScore}`;
     }
     round++;
-
+    const removeBtn = document.querySelector('.choices')
+    const addBtn = document.querySelector('.addBtn');
     if(humanScore === winningScore){
-        alert("You won the game!");
-        useraAgreed = confirm("Play again?");
-        if (useraAgreed === true){
-            round = 1;
-            displayRound.textContent = `Round: ${round}`;
-            compare.textContent = ``;
-            result.textContent = ``;
-            humanScore = 0;
-            computerScore = 0;
-            score.textContent = `You ${humanScore} | ${computerScore} Computer`;
-        }
+        symbol.textContent = ``;
+        result.setAttribute('style', 'font-size: 4rem;');
+        result.textContent = `You win!`;
+        removeBtn.remove();
+
+        const playAgainBtn = document.createElement('a');
+        playAgainBtn.textContent = 'Play again';
+        playAgainBtn.setAttribute('id', 'playAgainBtn');
+        playAgainBtn.setAttribute('href', 'game.html');
+        playAgainBtn.classList.add('playAgainBtn');
+        playAgainBtn.addEventListener('mouseenter', () => {
+            playAgainBtn.classList.add('playAgainBtn-hovered');
+        });
+        playAgainBtn.addEventListener('mouseleave', () => {
+            playAgainBtn.classList.remove('playAgainBtn-hovered');
+        });
+        addBtn.appendChild(playAgainBtn);
     }
     else if(computerScore === winningScore){
-        alert("Computer wins the game!");
-        useraAgreed = confirm("Play again?");
-        if (useraAgreed === true){
-            round = 1;
-            displayRound.textContent = `Round: ${round}`;
-            humanScore = 0;
-            computerScore = 0;
-            score.textContent = `You ${humanScore} | ${computerScore} Computer`;
-        }
+        symbol.textContent = ``;
+        result.setAttribute('style', 'font-size: 4rem;');
+        result.textContent = `Computer wins!`
+        removeBtn.remove();
+
+        const playAgainBtn = document.createElement('a');
+        playAgainBtn.textContent = 'Play again';
+        playAgainBtn.setAttribute('id', 'playAgainBtn');
+        playAgainBtn.setAttribute('href', 'game.html');
+        playAgainBtn.classList.add('playAgainBtn');
+        playAgainBtn.addEventListener('mouseenter', () => {
+            playAgainBtn.classList.add('playAgainBtn-hovered');
+        });
+        playAgainBtn.addEventListener('mouseleave', () => {
+            playAgainBtn.classList.remove('playAgainBtn-hovered');
+        });
+        addBtn.appendChild(playAgainBtn);
     }
 }
 
@@ -122,3 +137,4 @@ buttons.forEach(button =>{
         }
     });
 })
+
