@@ -2,7 +2,6 @@
 const choices = ['rock', 'paper', 'scissors'];
 const displayRound = document.querySelector('#round');
 const result = document.querySelector('#result');
-const symbol = document.querySelector('#symbol');
 const playerScore = document.querySelector('#playerScore');
 const botScore = document.querySelector('#botScore');
 
@@ -12,7 +11,7 @@ let humanScore = 0;
 const winningScore = 5;
 let round = 1;
 
-function getComputerChoice() {
+function getComputerChoice(){
     const randomNum = Math.floor(Math.random() * choices.length);
     return computerChoice = choices[randomNum];
 }
@@ -33,8 +32,7 @@ function playRound(humanChoice){
     displayRound.textContent = `Round ${round}`;
 
     if(humanChoice === computerChoice){
-        symbol.textContent = `=`;
-        result.textContent = `Draw`;
+        result.textContent = `DRAW`;
     }
     else{
         if(humanChoice === "rock"){
@@ -64,27 +62,26 @@ function playRound(humanChoice){
     }
     function win(){
         humanScore++;
-        symbol.textContent = `>`
-        result.textContent = `${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}`;
+        result.textContent = `${humanChoice.toUpperCase()} > ${computerChoice.toUpperCase()}`;
         playerScore.textContent = `${humanScore}`;
     }
     function lose(){
         computerScore++;
-        symbol.textContent = `<`
-        result.textContent = `${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}`;
+        result.textContent = `${humanChoice.toUpperCase()} < ${computerChoice.toUpperCase()}`;
         botScore.textContent = `${computerScore}`;
     }
     round++;
+
+    // Game winner logic
     const removeBtn = document.querySelector('.choices')
     const addBtn = document.querySelector('.addBtn');
     if(humanScore === winningScore){
-        symbol.textContent = ``;
         result.setAttribute('style', 'font-size: 4rem;');
         result.textContent = `You win!`;
         removeBtn.remove();
 
         const playAgainBtn = document.createElement('a');
-        playAgainBtn.textContent = 'Play again';
+        playAgainBtn.textContent = 'Play again?';
         playAgainBtn.setAttribute('id', 'playAgainBtn');
         playAgainBtn.setAttribute('href', 'game.html');
         playAgainBtn.classList.add('playAgainBtn');
@@ -95,15 +92,46 @@ function playRound(humanChoice){
             playAgainBtn.classList.remove('playAgainBtn-hovered');
         });
         addBtn.appendChild(playAgainBtn);
+        
+        // Celebration effects using 'confetti.js.org' library
+        const duration = 15 * 1e3,
+            animationEnd = Date.now() + duration,
+            defaults = {
+                startVelocity: 30,
+                spread: 360,
+                ticks: 60,
+                zIndex: 0
+            };
+        function randomInRange(min, max){
+            return Math.random() * (max - min) + min;
+        }
+        const interval = setInterval(function(){
+            const timeLeft = animationEnd - Date.now();
+            if(timeLeft <= 0) return clearInterval(interval);
+            const particleCount = 50 * (timeLeft / duration);
+            confetti(Object.assign({}, defaults, {
+                particleCount,
+                origin: {
+                    x: randomInRange(.1, .3),
+                    y: Math.random() - .2
+            }
+        }));
+        confetti(Object.assign({}, defaults, {
+            particleCount,
+            origin: {
+                x: randomInRange(.7, .9),
+                y: Math.random() - .2
+                }
+            }));
+        }, 250);
     }
     else if(computerScore === winningScore){
-        symbol.textContent = ``;
         result.setAttribute('style', 'font-size: 4rem;');
         result.textContent = `Computer wins!`
         removeBtn.remove();
 
         const playAgainBtn = document.createElement('a');
-        playAgainBtn.textContent = 'Play again';
+        playAgainBtn.textContent = 'Play again?';
         playAgainBtn.setAttribute('id', 'playAgainBtn');
         playAgainBtn.setAttribute('href', 'game.html');
         playAgainBtn.classList.add('playAgainBtn');
@@ -114,9 +142,41 @@ function playRound(humanChoice){
             playAgainBtn.classList.remove('playAgainBtn-hovered');
         });
         addBtn.appendChild(playAgainBtn);
+
+        const duration = 15 * 1e3,
+            animationEnd = Date.now() + duration,
+            defaults = {
+                startVelocity: 30,
+                spread: 360,
+                ticks: 60,
+                zIndex: 0
+            };
+        function randomInRange(min, max){
+            return Math.random() * (max - min) + min;
+        }
+        const interval = setInterval(function(){
+            const timeLeft = animationEnd - Date.now();
+            if(timeLeft <= 0) return clearInterval(interval);
+            const particleCount = 50 * (timeLeft / duration);
+            confetti(Object.assign({}, defaults, {
+                particleCount,
+                origin: {
+                    x: randomInRange(.1, .3),
+                    y: Math.random() - .2
+            }
+        }));
+        confetti(Object.assign({}, defaults, {
+            particleCount,
+            origin: {
+                x: randomInRange(.7, .9),
+                y: Math.random() - .2
+                }
+            }));
+        }, 250);
     }
 }
 
+// Choices buttons that calls back playRound() function
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button =>{
     button.addEventListener('click', function(){
