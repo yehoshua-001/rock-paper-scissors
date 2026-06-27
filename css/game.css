@@ -39,7 +39,7 @@ h1 {
     justify-content: center;
 }
 
-.board {
+.round {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,11 +55,25 @@ h1 {
     margin: 0;
 }
 
+.scoreBoard {
+    width: 890px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .playerScore,
 .botScore {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    min-width: 95px;
+}
+
+#playerScore,
+#botScore {
     font-size: 2.5rem;
-    padding-block: 20px;
-    padding-inline: 30px;
 }
 
 .compare {
@@ -77,11 +91,6 @@ h1 {
     align-items: center;
     height: 300px;
     width: 300px;
-}
-
-.txtLabel p {
-    display: flex;
-    margin: 0;
 }
 
 .result {
@@ -168,4 +177,23 @@ h1 {
     color: #FF0000;
     text-decoration: none;
     transition: all 0.3 ease;
+}
+
+/* Hand animation */
+@keyframes shakeHuman {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(-10deg);
+    }
+}
+
+@keyframes shakeComputer {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
 }
