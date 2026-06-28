@@ -4,6 +4,7 @@ const displayRound = document.querySelector('#round');
 const result = document.querySelector('#result');
 const playerScore = document.querySelector('#playerScore');
 const botScore = document.querySelector('#botScore');
+const choose = document.querySelector('.choose');
 
 // Global variables
 let computerScore = 0;
@@ -13,7 +14,7 @@ let round = 1;
 
 function playRound(humanChoice, computerChoice){
     if(humanChoice === computerChoice){
-        result.textContent = `DRAW`;
+        result.textContent = `Draw`;
     }
     else{
         if(humanChoice === "rock"){
@@ -43,17 +44,21 @@ function playRound(humanChoice, computerChoice){
     }
     function win(){
         humanScore++;
-        result.textContent = `${humanChoice.toUpperCase()} > ${computerChoice.toUpperCase()}`;
+        humanChoiceCapitalize = humanChoice[0].toUpperCase() + humanChoice.slice(1);
+        computerChoiceCapitalize = computerChoice[0].toUpperCase() + computerChoice.slice(1);
+        result.textContent = `${humanChoiceCapitalize} > ${computerChoiceCapitalize}`;
         playerScore.textContent = `${humanScore}`;
     }
     function lose(){
         computerScore++;
-        result.textContent = `${humanChoice.toUpperCase()} < ${computerChoice.toUpperCase()}`;
+        humanChoiceCapitalize = humanChoice[0].toUpperCase() + humanChoice.slice(1);
+        computerChoiceCapitalize = computerChoice[0].toUpperCase() + computerChoice.slice(1);
+        result.textContent = `${humanChoiceCapitalize} < ${computerChoiceCapitalize}`;
         botScore.textContent = `${computerScore}`;
     }
     round++;
 
-    // Spawn create 'Play again?' button
+    // Creat 'Play again?' button
     function playAgainBtn(){
         const addBtn = document.querySelector('.addBtn');
         const playAgainBtn = document.createElement('a');
@@ -122,7 +127,8 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-// Choices buttons for player to choose their checker, calls back playRound(),
+
+// Choices buttons for player to choose their pieces, calls back playRound(),
 // generate computer choice randomly, and animate the hands for every click.
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
@@ -136,7 +142,19 @@ buttons.forEach(button => {
         displayRound.textContent = `Round ${round}`;
         humanChoiceImg.setAttribute(`src`, `./images/player/rock.png`);
         computerChoiceImg.setAttribute(`src`, `./images/computer/rock.png`);
-        result.textContent ="ROCK PAPER SCISSORS";
+        choose.textContent = '';
+        // Display 'ROCK, PAPER, SCISSORS' with time interval
+        const displayText = ['ROCK', 'PAPER', 'SCISSORS'];
+        let index = 0;
+        const textInterval = setInterval(() => {
+            if(index < displayText.length){
+                document.querySelector('#result').textContent = displayText[index];
+                index++;
+            }
+            else{
+                clearInterval(textInterval);
+            }
+        }, 450);
         setTimeout(() => {
             playRound(humanChoice, computerChoice);
             humanChoiceImg.setAttribute(`src`, `./images/player/${humanChoice}.png`);
