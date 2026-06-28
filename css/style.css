@@ -1,26 +1,27 @@
 * {
     box-sizing: border-box;
+    font-family: Verdana, Garamond, "Gill Sans", sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     background-color: #160C28;
     color: #E1EFE6;
+    flex-direction: column;
 }
 
 main {
-    font-family: Verdana, Garamond, "Gill Sans", sans-serif;
     font-size: 1.3rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 200px
+    margin-top: 200px;
 }
 
 h1 {
@@ -63,4 +64,17 @@ h1 {
     color: #000411;
     text-decoration: none;
     transition: all 0.3 ease;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+#odinlink,
+#githublink {
+    color: #E1EFE6;
 }

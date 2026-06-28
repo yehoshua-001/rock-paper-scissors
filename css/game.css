@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Verdana, Garamond, "Gill Sans", sans-serif;
 }
 
 body {
@@ -9,34 +10,43 @@ body {
     background-color: #160C28;
     color: #E1EFE6;
     display: flex;    
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;    
     flex-direction: column;
 }
 
+header {
+    display: block;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: 50px;
+    height: auto;
+}
+
+#home {
+    text-decoration: none;
+    color: #E1EFE6;
+    font-weight: 800;
+}
+
 main {
-    font-family: Verdana, Garamond, "Gill Sans", sans-serif;
     font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 700px;
 }
 
 h1 {
     font-size: 5rem;
     color: #EFCB68;
-    display: flex;
     margin: 0;
-}
-
-.round,
-.compare,
-.result,
-.score {
-    display: flex;
-    justify-content: center;
 }
 
 .round {
@@ -80,7 +90,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px white solid; */
 }
 
 .human,
@@ -104,7 +113,7 @@ h1 {
 }
 
 #result {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .playerChoiceImg,
@@ -120,7 +129,6 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-block: 50px;
 }
 
 #rock,
@@ -146,6 +154,10 @@ h1 {
     color: #000411;
     text-decoration: none;
     transition: all 0.3 ease;
+}
+
+.choose {
+    margin-top: 15px;
 }
 
 .addBtn {
@@ -196,4 +208,18 @@ h1 {
     50% {
         transform: translateY(-30px) rotate(10deg);
     }
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+#odinlink,
+#githublink {
+    color: #E1EFE6;
 }
