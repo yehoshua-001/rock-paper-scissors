@@ -4,8 +4,7 @@
 In this project I will make functions, logics, and algorithms based on infamous game &mdash; Rock Paper Scissors. I will apply the skills I learned in JavaScript and Document Object Model (DOM) manipulation and events in [Foundations Course of The Odin Project](https://www.theodinproject.com/paths/foundations/courses/foundations), to achieve whatever my desired results.
 
 ## Gameplay Demo
-<br>
-<img src="./images/rock-paper-scissors-demo.gif" alt="rock paper scissors demo" width="1000">
+https://github.com/user-attachments/assets/9d976cdf-a0f9-4788-8c6d-5b128f8ae9b1
 
 ## How to play
 Method 1:
